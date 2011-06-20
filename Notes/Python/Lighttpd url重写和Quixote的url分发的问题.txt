@@ -1,0 +1,26 @@
+Lighttpd url重写和Quixote的url分发的问题
+
+昨天在VPS上部署了Lighttpd,SCGI,Quixote的Demo后，发现一个问题，找了一下在豆瓣上发现有人跟我遇到的问题一样：
+http://www.douban.com/group/topic/9591417/
+刚好捣鼓了一下，回复了他，顺便把解决方法记录一下
+
+1 激活Lightttpd的URL重写模块：
+Vim /etc/lighttpd/lighttpd.conf
+--------------- Code ------------------
+server.modules = (
+"mod_scgi",
+"mod_access",
+"mod_alias",
+"mod_accesslog",
+"mod_compress",
+"mod_rewrite", #This is the key point
+"mod_redirect",
+｝
+
+2. 重写URL
+#### url handling modules (rewrite, redirect, access)
+url.rewrite = ( "^/$" => "/index" )
+这样就把http://www.example.c​om/指向了http://www.example.c​om/index
+也就是重写到了Quixote的app的index路径！
+
+＝Over＝

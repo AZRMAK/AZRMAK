@@ -1,0 +1,27 @@
+
+首先，編寫一個c語言Extention
+/* hello.c */
+#include <stdio.h>
+
+void display(void){
+    printf("Hello from C extention!\n");
+}
+
+編譯成dylib:
+gcc -shared -arch i386 hello.c -o hello.dylib
+
+注意，這裡通過-arch i386編譯成32位鏈接庫，因為我的python是32位的
+-arch x86_64為64位。
+
+然後是python代碼
+# callce.py
+from ctypes import *
+import os
+
+libtest = cdll.LoadLibrary(os.getcwd() + '/hello.dylib')
+libtest.display()
+
+運行成功！
+-[Over]-
+
+

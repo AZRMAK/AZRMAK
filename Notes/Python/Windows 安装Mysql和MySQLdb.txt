@@ -1,0 +1,17 @@
+过程比较简单，不累述，下面是一些值得注意的地方。
+
+1. MySQLdb在windows平台安装比较特殊，最好是下载Windows的二进制包安装。
+
+2. MySQL安装时，我一般都是在自动配置程序里设置以非服务的形式运行，方便管理。
+
+3. 启动MySQL的方法是，在安装目录的bin文件夹下运行mysqld.exe。
+
+4. 管理Mysql的方法是，运行bin文件夹下的mysql.exe -u root -p ，默认密码为空。
+
+5. 修改root密码，进入MySQL管理界面后，运行下面两条指令：
+    update mysql.user set password=PASSWORD('666666') where User='root';
+    
+    #刷新权限表
+    flush privileges
+
+=Over=

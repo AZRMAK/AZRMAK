@@ -1,0 +1,42 @@
+Ubuntu 10.10 部署quixote和scgi
+
+1. 安装lighttpd
+    sudo apt-get install lighttpd
+
+2. 配置lighttpd
+    编辑  /etc/lighttpd/lighttpd.conf 
+    [1]. 加入mod_scgi
+           server.modules里添加"mod_scgi"
+    [2]. 加入scgi client
+          scgi.server = ("/" =>
+    		("loclhost" => (
+    		"host" => "127.0.0.1",
+    		"port" => 3000,
+    		"fix-root-scriptname" => "enable",
+    		"check-local" => "disable"
+    		)))
+
+    [3]. 启动lighttpd
+           sudo /etc/init.d/lighttpd start
+
+3. 安装quixote
+     安装需要的组件，这个是为了避免安装提示gcc异常.
+     apt-get install python-dev librsync-dev
+     wget http://quixote.ca/releases/Quixote-2.7.tar.gz
+     tar vxzf Quixote-2.7.tar.gz
+     cd Quixote-2.7
+     sudo python setup.py install
+
+4. 安装scgi for python
+    wget http://python.ca/scgi/releases/scgi-1.14.tar.gz
+    tar vxzf scgi-1.14.tag.gz
+    cd scgi-1.14
+    sudo python setup.py install
+
+5 启动scgi服务器，以Quixote的demo为例子
+    cd /usr/lib/python2.5/site-packages/quixote/server (这个路径根据quixote的安装路径而定)
+     python scgi_server.py --host=127.0.0.1 --port=3000
+     *在本地监听3000端口，等待lighttpd的scgi客户端来连接
+
+6 结束
+     如果一切顺利的话，到此，访问http://localhost应该就能看到Quixote的demo程序了.    

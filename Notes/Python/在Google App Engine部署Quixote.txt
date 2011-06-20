@@ -1,0 +1,80 @@
+在Google App Engine部署Quixote
+
+1
+在Google App Engine部署GAE不支持的Python包是，通常的做法是把包压缩成ZIP格式，Python支持
+zipimport来载入这个ZIP包，这里注意一点具体的压缩做法：
+(1) "在要压缩的文件夹，以我为例，就是Quixote，单击右键，用7z压缩成Quixote.zip"
+(2) 压缩包例除了以py为后缀的其他文件，比如pyc，vim的swap文件都要删除
+2
+为了在本地用GAE SDK测试和上传至GAE，先在网站的文件夹建立app.yaml,这里的内容如下：
+application: 29boys
+version: 1
+runtime: python
+api_version: 1
+handlers:
+- url: /.*
+script: main.py
+3
+接下来是最关键的一个步骤，建立上面app.yaml里面的handler，main.py,对于Quixote来说，这个文件可以这样：
+import logging,os,sys
+import thread
+quixote_path = "quixote.zip"
+sys.path.insert(0,quixote_path)
+from quixote.publish import Publisher,cleanup
+from quixote.directory import Directory
+from MiniSite import MyRoot
+if os.name=='nt':
+os.unlink=lambda :None
+class ThreadedPublisher(Publisher):
+is_thread_safe = True
+def __init__ (self, root_namespace, config=None):
+Publisher.__init__(self, root_namespace, config)
+self._request_dict = {}
+def _set_request(self, request):
+self._request_dict[thread.get_ident()] = request
+def _clear_request(self):
+try:
+del self._request_dict[thread.get_ident()]
+except KeyError:
+pass
+def get_request(self):
+return self._request_dict.get(thread.get_ident())
+#This is the quixote website to be deploy
+#For logging
+#from quixote import logger
+#Logger = logger.DefaultLogger(access_log="f://acess_log.txt",error_log="f://error_log.txt")
+def create_publisher():
+return ThreadedPublisher(MyRoot())
+#return Publisher(RootDirectory())
+import traceback
+from quixote import get_wsgi_app
+from google.appengine.ext.webapp import util
+if quixote_path not in sys.path:
+sys.path.insert(0, quixote_path)
+try:
+pub = create_publisher()
+application = get_wsgi_app()
+except TypeError,e:
+pass
+def main():
+# Run the WSGI CGI handler with that application.
+util.run_wsgi_app(application)
+if __name__ == '__main__':
+main()
+4
+最后，就是完善3里面代码所引入的Quixote applicaction:MiniSite了，我也附上一个用于测试的代码
+#-*- coding: utf-8 -*-
+"""The mini root directory for the Quixote demo.
+"""
+import sys
+reload(sys)
+from quixote.directory import Directory
+from quixote.util import dump_request
+#sys.setdefaultencoding('utf8')
+class MyRoot(Directory):
+_q_exports = [""]
+def _q_index(self):
+res = """<h1>xxx</h1>"""
+return res
+5 总结
+把Quixote部署到GAE后，PTL模板不能使用，这个原因还不知道

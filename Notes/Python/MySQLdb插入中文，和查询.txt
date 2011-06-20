@@ -1,0 +1,8 @@
+MySQLdb插入中文，和查询
+
+最好是把MySQL数据库的默认编码改为UTF-8，然后，也把python代码文件的编码也改为
+UTF-8，在文件的开始处加入：#-*- coding: utf-8 -*-,并且加入：
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
+＝Over ＝

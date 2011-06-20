@@ -1,0 +1,26 @@
+Python的MD5模块
+
+1
+最近刚好要用到MD5单向加密，实现用户注册和登录验证，MD5模块刚好实现了这个功能
+2
+例子：
+>>>import md5
+>>>m = md5.new()
+>>>m.update("This is a string to be encrypted")
+>>>m.digest()
+或者
+>>>md5.new("This is a string to be encrypted").digest()
+3
+由于MD5模块在Python2.5以后不再被支持，所以可以用hashlib代替，用官方文档的话来
+说：Deprecated since version 2.5: Use the hashlib module instead.
+4
+>>> import hashlib
+>>> m = hashlib.md5()
+>>> m.update("Twilight")
+>>> m.digest()
+'\x01\xd0r,\x1f\x99a\xf2\xb7c\xfb\xe5\x18i)\x9a'
+>>> hashlib.md5("Twilight").digest()
+'\x01\xd0r,\x1f\x99a\xf2\xb7c\xfb\xe5\x18i)\x9a'
+or
+>>>m.hexdigest()
+=Over=

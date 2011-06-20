@@ -1,0 +1,22 @@
+----[
+     sudo apt-get install mysql-server
+
+----[
+     安装过程会提示设置root的密码
+
+----[
+     设置编码
+     编辑 /etc/mysql/my.cnf
+
+     [client]下添加default-character-set=utf8
+     [server]下添加default-character-set=utf8
+     init_connect='SET NAMES utf8;'
+
+----[
+     启动mysql： /usr/bin/mysqld_safe
+     
+----[
+     登录mysql：/usr/bin/mysql -u root -p
+
+----[over]----
+

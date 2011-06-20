@@ -1,0 +1,18 @@
+Quixote - 静态文件的访问
+
+1
+根据Doc说的，如果要让某个文件或者文件夹曝光的话，应该使用quioxte.util里的StaticFile()和StaticDirecotry().
+引用Doc的原话：“The ``quixote.util`` module includes classes for making files and directories available as Quixote
+resources. ”
+2
+例如，要让E:\images这个文件夹曝光给Web Server的话，可以这样来写代码：
+#-*- coding:utf-8 -*-
+from quixote.util import StaticFile,StaticDirectory
+from quixote.directory import Directory
+class MyRoot(Directory):
+_q_exports = ["","image"]
+image = StaticDirectory("e://images/")
+""" ... """
+"""some other methods"""
+""" ... """
+=Over=

@@ -1,0 +1,32 @@
+Quixote之Form简述
+
+1
+这篇超短文是关于Quixote的Form的一些实践心得，详细使用方法参照Form的源代码
+2
+实例化：
+from quixote.form import Form,StringWidget
+form = Form() #无参数
+form = Form(action="show") #指定action
+form = Form(action="show",enctype="multipart/form-data") #用于上传文件
+加项目：
+form.add(StringWidget,"name",title="name:",size=20,required=True) #还有其他的参数，比如加一些相应Javascript
+的函数调用。
+增加隐藏和提交按钮
+form.add_hidden("date",value="2010-08-16")
+form.add_submit("go","Go!")
+最后是渲染：
+form.render()
+判断一个Form是否已经提交了：
+form.submitted()
+判断一个Form是否有错误：
+form.has_errors()
+3
+一个Form可以用以判断输入的正确与否，例如指定required = True，那个项必须要有值
+4.
+上传文件后，可以用一下方法来读取文件的内容
+for widget in form.get_all_widgets():
+value = widget.parse()
+if isinstance(widget, FileWidget):
+filebuffer = value.fp.read()
+filelength = value.get_size()
+=Over=

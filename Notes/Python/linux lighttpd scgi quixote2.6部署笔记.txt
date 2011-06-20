@@ -1,0 +1,48 @@
+lighttpd scgi quixote2.6部署笔记
+
+1 编译安装lighttpd
+编译lighttpd 1.4.23，旧版本有个scgi bug，详细情况参考我的另一篇文章
+    wget http://www.lighttpd.net/download/lighttpd-1.4.23.tar.gz
+    tar vxzf lighttpd-1.4.23.tar.gz
+    cd lighttpd-1.4.23
+    ./configure --prefix=/home/lighttpd
+     make
+     make install
+    configure 过程中可能会提示缺少某些组件，根据提示apt-get安装
+
+2 配置lighttpd 的mod_scgi
+    复制解压后（即lighttpd-1.4.23）的doc下面的lighttpd.conf到安装目录下（即/home/lighttpd）,然后修改一下几个地方
+    * server.modules里添加"mod_scgi"
+    * server.document-root = "."
+     * scgi.server = ("/" =>
+    ("loclhost" => (
+    "host" => "127.0.0.1",
+    "port" => 3000,
+    "fix-root-scriptname" => "enable",
+    "check-local" => "disable"
+    )))
+    *fix-root-scriptname是用来修正"/",不能正确解析的问题
+     *启动lighttpd /home/lighttpd/sbin/lighttpd -f /home/lighttpd/lighttpd.conf
+     *如果启动后提示一些目录不存在，可以修改conf文件，或者把那些没有的目 录建立起来，一般都是一些log文件，如error.log,access.log
+
+3 安装python的scgi模块
+    wget http://python.ca/scgi/releases/scgi-1.14.tar.gz
+    tar vxzf scgi-1.14.tag.gz
+    cd scgi-1.14
+     python setup.py install
+
+4 安装quixote
+    wget http://quixote.ca/releases/Quixote-2.6.tar.gz
+     tar vxzf Quixote-2.6.tar.gz
+     cd Quixote-2.6
+     安装需要的组件，这个是为了避免安装提示gcc异常.
+     apt-get install python-dev librsync-dev
+     python setpu.py install
+
+5 启动scgi服务器，以Quixote的demo为例子
+    cd /usr/lib/python2.5/site-packages/quixote/server (这个路径根据quixote的安装路径而定)
+     python scgi_server.py --host=127.0.0.1 --port=3000
+     *在本地监听3000端口，等待lighttpd的scgi客户端来连接
+
+6 结束
+     如果一切顺利的话，到此，访问http://localhost应该就能看到Quixote的demo程序了.

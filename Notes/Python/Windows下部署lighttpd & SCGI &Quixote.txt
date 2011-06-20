@@ -1,0 +1,69 @@
+由于Python的scgi模块在windows平台上编译不过，所以网上有了scgi模块的windows版本，名字叫flup,其实flup也用了linux/unix平台的fork底层C函数，导致了一个问题，flup在windows平台不支持多进程，flup的scgi模块默认是多线程，而非多进程！
+
+下面直接进入部署的程序
+
+1 安装配置Lighttpd的windows版本
+
+*下载地址 http://en.wlmp-project.net/downloads.php?cat=lighty&type=ssl&format=exe&mirror=dtech
+*配置conf\lighttpd-inc.conf
+a) 在server.modules添加mod_scgi
+b) server.document-root = "/HTDOCS/" 改为绝对路径
+c) 配置scgi
+scgi.server = ("/" =>
+("loclhost" => (
+"host" => "127.0.0.1",
+"port" => 4000, #端口要跟服务器一致
+"fix-root-scriptname" => "enable",
+"check-local" => "disable"
+)))
+
+2 假定Quixote和Python已经安装完成，接下来是安装flup
+
+*下载地址 http://www.saddi.com/software/flup/dist/ 这里选用1.0.1版本
+
+*解压并从命令行进入 python setup.py install (中间可能需要安装easy_install)
+
+3 编写scgi服务器脚本
+
+*这里以Quixote的Demo为例
+*脚本如下
+from flup.server.scgi import WSGIServer
+from quixote import enable_ptl
+enable_ptl()
+from quixote.publish import Publisher
+import sys
+from quixote.demo.root import RootDirectory	
+
+import thread
+from quixote.wsgi import QWIP
+
+class ThreadedPublisher(Publisher):
+	is_thread_safe = True 
+	def __init__ (self, root_namespace, config=None): 
+			Publisher.__init__(self, root_namespace, config) 
+		self._request_dict = {} 
+
+	def _set_request(self, request): 
+		self._request_dict[thread.get_ident()] = request 
+
+	def _clear_request(self): 
+		try: 
+			del self._request_dict[thread.get_ident()] 
+		except KeyError: 
+			pass 
+
+	def get_request(self): 
+		return self._request_dict.get(thread.get_ident())
+
+def main():
+	app = QWIP(ThreadedPublisher(RootDirectory()))
+	#app = QWIP( create_publisher())
+	ret = WSGIServer(app).run()
+
+if __name__ == "__main__":
+	main()
+
+4 对脚本的一点注解
+*由于flup.server.scgi.WSGIServer默认多线程的，所以把Publisher包装成对应的多线程.
+*flup好像没什么文档可以参考，以上的脚本是我根据源代码的注释写出来的
+=Over=

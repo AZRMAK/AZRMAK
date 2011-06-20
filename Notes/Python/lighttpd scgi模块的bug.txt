@@ -1,0 +1,10 @@
+lighttpd scgi模块的bug
+
+lighttpd-1.4.19 (ssl) (Jan 31 2010 19:11:17)
+Afer install this version of lighttpd on Debian and configuring the /etc/lighttpd/lighttpd.conf,sarting scgi_server.py,everything goes well,excapt that - If the script name is / ,the lighttpd web server seems to loop on for a long time and give me a message!
+The new version has fix this bug,the following is the bug fix log:
+--------------------------------------
+1.4.23 - Leaving the nest
+June 19th, 2009
+Time for a new release: spawn-fcgi is now going its own ways in an independent project (hence the release slogan; see http://redmine.lighttpd.net/projects/spawn-fcgi), wsgi applications in / should work now (use the fastcgi/scgi option “fix-root-scriptname”) and many other fixes and improvements."
+----------------------------------------

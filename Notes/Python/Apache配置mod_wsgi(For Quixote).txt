@@ -1,0 +1,36 @@
+Apache配置mod_wsgi(For Quixote)
+
+這兩天一直在弄Quixote,先后研究了scgi,fcgi,由于在Windows平臺，這兩個多不支持，所以放棄了。
+后來決定用plain CGI,過程比較簡單，很順利的就完成了，但是，plain CGI比較耗費資源，最后試試
+WSGI,下面就是我配置WSGI的過程，也不復雜，但中間有個問題，就是Apache配置mod_wsgi失敗了。
+一 環境
+Windows XP,Apache 2.2.16,mod_wsgi 3.0,Python 2.6.
+二 下載和配置mod_wsgi
+在這里下載mod_wsgi,http://code.google.com/p/modwsgi/downloads/list,根據列表選擇跟你的Apache和Python版本相對應的mod_wsgi,我這里選的是mod_wsgi 3.0.把这个文件重命名為
+mod_wsgi.os，然后放到Apache的moduls目录下目录下。
+注意，不同版本的的mod_wsgi对于python的版本是有要求的，比如这里的mode_wsgi 3.1 就需要
+python 2.6+的相关版本。如果用python 2.5及以下的版本，就算配置好了，也无法启动Apache，而
+在EventViewer里面可以查看Apache给出的错误信息，大概如下："httpd.exe: Syntax error on line 128
+of C:/data/apache/conf/httpd.conf: Cannot load C:/data/apache/modules/mod_wsgi.so into server:
+The specified module could not be found. "
+配置Apache,打開配置文件http.conf,并且在LoadModule那一段下面加入一下代碼：
+LoadModule wsgi_module modules/mod_wsgi.so
+在Alias段添加下面的語句：
+WSGIScriptAlias /wsgi/ "F:/29touch/wsgi_handler.py"
+<Directory "F:/29touch">
+AllowOverride None
+Options None
+Order deny,allow
+Allow from all
+</Directory>
+三 編寫wsgi_handler.py
+wsgi_handler.py是用來和Apache的mod_wsgi鏈接的程序，只是一個測試用的例子，代碼如下：
+def application(environ, start_response):
+status = '200 OK'
+output = 'Hello World!'
+response_headers = [('Content-type', 'text/plain'),
+('Content-Length', str(len(output)))]
+start_response(status, response_headers)
+return [output]
+重新啟動Apache后，在瀏覽器打開http://localhost/wsgi/，看到Hello World!字樣算成功.
+=Over=

@@ -1,0 +1,36 @@
+
+前言：
+在Mac OS X下面，通过虚拟机搭建了Windows XP和Ubuntu 10.10,由于Ubuntu的vmware tools安装后不能使用，所以想在这三个系统中同步文件，就选用了git，并且基于SSH
+
+下面是我部署这个环境的一些步骤
+
+1. 在Mac OS X下面安装git
+sudo port install git-core
+或者到这里下载安装包：http://code.google.com/p/git-osx-installer/
+
+2. 开启宿主系统的ssh
+这里是Mac OS X, 在偏好设置－共享里打开远程登录。
+
+3. 创建一个git仓库
+    mkdir git
+    cd git
+    git init
+    git add *
+    git commit
+
+4. 用git的ssh协议连接并操作git
+   git clone ssh://mak@127.0.0.1/path/to/repos/.git/
+
+   注意：连接的时候会出现这个错误
+   “
+   bash: git-upload-pack: command not found
+   fatal: The remote end hung up unexpectedly
+   ”
+   这是因为在non-logging shell的path中找不到git-upload-pack
+   解决的办法是指定-u git-upload-pack's path，这个方法比较麻烦
+
+   终极解决的办法是执行下面的命令：
+   cd /usr/bin
+   sudo ln  /usr/local/git/bin/git* . 
+ 
+----[over]----

@@ -1,0 +1,8 @@
+Pytohn的时区转换
+
+直接上代码：
+from datetime import datetime,timedelta
+
+utc_time = datetime.utctime() + timedelta(hours = +8) #东八区
+utc_tuple = utc_time.utctimetuple()
+=Over=

@@ -1,0 +1,29 @@
+为Quixote设置日志文件
+
+一般而言，要启动一个Quixote程序，通常的做法是用一个Publisher来连接服务器和Quixote程序。比如下面的代码是用于连接Apache和Quixote程序的wsgi脚本，即Driver Script.
+def create_publisher():
+return ThreadedPublisher(MyRoot())
+import traceback
+from quixote import get_wsgi_app
+try:
+pub = create_publisher()
+application = get_wsgi_app()
+except TypeError,e:
+pass
+这样做虽然可以，但是这个Quixote程序是没有日志的。
+下面有两种方法来为它设置日志
+1. 修改config.py这个文件，里面有ACCESS_LOG等属性，这个方法有个缺点，就是当Quixote升级的时候，会被覆盖，或者不能兼容高版本。
+2.为Publisher设置Logger实例，下面的代码刚好演示了这个功能：
+from quixote import logger
+Logger = logger.DefaultLogger(access_log="f://acess_log.txt",error_log="f://error_log.txt")
+def create_publisher():
+return ThreadedPublisher(MyRoot(),Logger)
+#return ThreadedPublisher(RootDirectory(),Logger)
+import traceback
+from quixote import get_wsgi_app
+try:
+pub = create_publisher()
+application = get_wsgi_app()
+except TypeError,e:
+pass
+=Over=

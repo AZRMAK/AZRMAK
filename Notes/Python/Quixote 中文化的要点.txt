@@ -1,0 +1,10 @@
+Quixote 中文化的要点
+
+Quixote的中文设置好像很麻烦。其实随着python、Quixote版本的推进，现在这个问题已经很简单了。字符集使用的是utf-8。使用gb2312可能也是可以的。
+1. 所有源代码使用utf-8在程序的开始加上# -*- coding: utf-8 -*-
+2. ptl的html模板加上content="text/html charset=UTF-8"
+3. 关键:在quixote的安装路径下有__init__.py，将其中的DEFAULT_CHARSET = 'iso-8859-1'改成 'utf-8'
+4. 也可以不修改__init__.py，使用Publisher的时候把Publisher扩展一下：
+class UTF8Publisher(Publisher):
+quixote.DEFAULT_CHARSET = "utf-8"
+=Over=

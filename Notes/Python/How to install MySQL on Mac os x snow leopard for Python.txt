@@ -1,0 +1,36 @@
+How to install MySQL on Mac os x snow leopard for Python
+
+1. Install MySQL
+* Download mysql-5.1.50-osx10.6-x86.dmg
+* Be sure to download the 32-bits version,64-bits version does not work well on Snow Leopard.
+* Copy /usr/local/mysql/support-files to /etc/ as my.cnf
+* Start Mysql server
+[
+shell> cd /usr/local/mysql
+shell> sudo ./bin/mysqld_safe
+shell>ENTER YOUR PASSWORD, IF NECESSARY)
+shell>PRESS CONTROL-Z)
+shell> bg
+PPRESS CONTROL-D OR ENTER "EXIT" TO EXIT THE SHELL)
+]
+* Add the following text to [mysqld] section
+[
+character-set-server=utf8
+collation-server=utf8_general_ci
+default-character-set=utf8
+]
+* Start mysql client and type:
+show variables like 'character_%';
+* To see if utf-8 support is on
+2. Install MySQLdb
+* Edit _mysql.c at line 37 to 39,comment out these three lines:
+* Edit site.cfg: threadsafe = False
+* Edit site.cfg: mysql_config = /usr/local/mysql/bin/mysql_config
+* Then run command: python setup.py build python setup.py install
+3 Test
+Python 2.5.4 (r254:67916, Feb 11 2010, 00:50:55)
+[GCC 4.2.1 (Apple Inc. build 5646)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import MySQLdb
+>>> MySQLdb.__version__
+'1.2.2'

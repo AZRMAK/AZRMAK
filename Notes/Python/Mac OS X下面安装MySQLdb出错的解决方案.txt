@@ -1,0 +1,55 @@
+Mac OS X下面安装MySQLdb出错的解决方案
+
+安装MySQLdb后，用python导入后出现如下错误：
+>>> import MySQLdb
+
+Traceback (most recent call last):
+
+  File "<stdin>", line 1, in <module>
+
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 19, in <module>
+
+  File "build/bdist.macosx-10.6-universal/egg/_mysql.py", line 7, in <module>
+
+  File "build/bdist.macosx-10.6-universal/egg/_mysql.py", line 6, in __bootstrap__
+
+ImportError: dlopen(/Users/David/.python-eggs/MySQL_python-1.2.3-py2.6-macosx-10.6-universal.egg-tmp/_mysql.so, 2): no suitable image found.  Did find:
+
+	/Users/David/.python-eggs/MySQL_python-1.2.3-py2.6-macosx-10.6-universal.egg-tmp/_mysql.so: mach-o, but wrong architecture
+
+究其原因是python和_mysql.so的平台不一致，看下：
+Maks-MacBook-Pro:~ mak$ file $(which python)
+/usr/bin/python: Mach-O universal binary with 3 architectures
+/usr/bin/python (for architecture x86_64):	Mach-O 64-bit executable x86_64
+/usr/bin/python (for architecture i386):	Mach-O executable i386
+/usr/bin/python (for architecture ppc7400):	Mach-O executable ppc
+
+原来是python运行时没有使用I386而用的是X86_64,也就是说，python被强制运行为64位。
+
+解决的办法是，强制python运行为32位，修改default。
+defaults write com.apple.versioner.python Prefer-32-Bit -bool yes
+
+结果正常：
+Maks-MacBook-Pro:~ mak$ python
+Python 2.6.1 (r261:67515, Jun 24 2010, 21:47:49) 
+[GCC 4.2.1 (Apple Inc. build 5646)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import MySQLdb
+>>> dir(MySQLdb)
+['BINARY', 'Binary', 'Connect', 'Connection', 'DATE', 'DATETIME', 'DBAPISet', 'DataError', 'DatabaseError', 'Date', 'DateFromTicks', 'Error', 'FIELD_TYPE', 'IntegrityError', 'InterfaceError', 'InternalError', 'MySQLError', 'NULL', 'NUMBER', 'NotSupportedError', 'OperationalError', 'ProgrammingError', 'ROWID', 'STRING', 'TIME', 'TIMESTAMP', 'Time', 'TimeFromTicks', 'Timestamp', 'TimestampFromTicks', 'Warning', '__all__', '__author__', '__builtins__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__revision__', '__version__', '_mysql', 'apilevel', 'connect', 'connection', 'constants', 'debug', 'escape', 'escape_dict', 'escape_sequence', 'escape_string', 'get_client_info', 'paramstyle', 'release', 'result', 'server_end', 'server_init', 'string_literal', 'test_DBAPISet_set_equality', 'test_DBAPISet_set_equality_membership', 'test_DBAPISet_set_inequality', 'test_DBAPISet_set_inequality_membership', 'thread_safe', 'threadsafety', 'times', 'version_info']
+>>> 
+
+--[
+以上解决方法是通过google得来的，如下
+http://www.webguo.com/2011/01/9/Snow_leopard_virtualenv_mysqldb.html
+http://birdhouse.org/blog/2009/02/21/python-mysql-connections-on-mac-os/
+
+
+注意：编译安装MySQLdb的时候应该用如下命令
+ARCHFLAGS='-arch i386' python setup.py build
+ARCHFLAGS='-arch i386' sudo python setup.py install
+这样的话，生成的so就是32位的
+
+另，如果要生成64位so库的话，应该用如下命令
+ARCHFLAGS='-arch x86_64' python setup.py build
+ARCHFLAGS='-arch x86_64' sudo python setup.py install
