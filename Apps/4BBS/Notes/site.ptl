@@ -1,0 +1,17 @@
+﻿#_*_ coding:utf-8 _*_
+
+from quixote import get_request
+from quixote.directory import Directory
+from quixote import get_field
+import MySQLdb
+
+class RootDirectory (Directory):
+    _q_exports = [""]
+    def _q_index(self):
+        html = "hello %s"
+        ver = MySQLdb.__version__        
+        return html % ver
+        
+
+
+

@@ -1,0 +1,64 @@
+﻿#_*_ coding:utf-8 _*_
+import MySQLdb
+from quixote import get_request
+from quixote.directory import Directory
+from quixote import get_field
+import time
+
+from recaptcha.client import captcha
+
+PUB_KEY = "6Le6f8QSAAAAACKCYRvE-mIeath8rqER3fERWYK_"
+PRI_KEY = "6Le6f8QSAAAAAFb7bnmkVFY7HjNzwcQd5cqc0YE3"
+
+class RootDirectory (Directory):
+    _q_exports = ["","loop","check"]
+    def check(self):
+       response = captcha.submit(
+                    get_field('recaptcha_challenge_field'),
+                    get_field('recaptcha_response_field'),
+                    PRI_KEY,
+                    get_request().get_environ('REMOTE_ADDR'),
+                    )
+       if response.is_valid:
+           return "Right!"
+       else:
+           return "Error!"
+
+    def loop(self):
+        conn = MySQLdb.connect(host="localhost",user="root",passwd="666666")
+        conn.select_db("mak")
+        cursor = conn.cursor()
+        count = cursor.execute("""select * from test""")
+        res = cursor.fetchall()
+        conn.close()     
+        html = """
+                    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+                    <head>
+                        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+                        <title>Un</title>
+                    </head>
+                    <body>
+                        %s
+                        <br />
+                        %s
+                    </body>
+                    </html>
+                    """   
+        recs = ""
+        for r in res:
+            recs += str(r[0]) + "-" + r[1]
+        if get_field('user'):
+            user = get_field('user')
+        else:
+            user = 'Anonymous'
+        return html % (recs,user)
+        
+    def _q_index(self):
+        html = "<form action=check method=post />"
+        html += captcha.displayhtml(PUB_KEY)
+        html += "<input type=submit /></form>"
+        return html
+        
+
+
+

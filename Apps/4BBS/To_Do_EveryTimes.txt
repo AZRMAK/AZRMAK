@@ -1,0 +1,24 @@
+----[  每次的计划任务明细   ]----
+
+作者: Peter Mak 
+创建时间: 14:08 2011-5-21
+
+-[Node 1]
+1. 设计匿名BBS的数据库 [Done]
+2. 安装Ubuntu [Done]
+3. 在Ubuntu上部署BBS运行环境 [Done]
+4. 重新检查Mac OS X的服务器状态 [Done]
+5. 三系统文件共享，SSH & Git [Done]
+
+-[Node 2]
+1. Create an administration interface for 'kind' table
+    * URL: /kind/ 
+                /kind/login
+                /kind/logout 
+                /kind/create 
+                /kind/edit
+                /kind/delete
+2. Douban FM [Done]
+3. Python HTML templates by using  %
+    HTML % (HEAD, BODY)
+----[Over]----

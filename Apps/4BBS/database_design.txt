@@ -1,0 +1,40 @@
+4BBS database design
+
+*Note*: Created by Peter Mak on 2011-05-25
+
+----[
+Table: kind
+[Field]                         [Type]                          [Comment]
+kind_id                         bigint                             category id
+kind_name                       char(20)                        category name
+kind_count                      bigint                             sum of posts count
+kind_shortname                  char(20)                        shortname of kind
+
+----[
+Table: post
+[Field]                         [Type]                          [Comment]
+kind_id                         bigint                             category id belong to
+post_tittle                     char(50)                        post tittle
+post_date                       char(20)                        post create date
+post_id                         bigint                             post id
+post_content                    varchar(200)                    post content
+user_id                         bigint                             user id belong to
+
+----[
+Table: comment
+[Field]                         [Type]                          [Comment]
+comment_id                      bigint                             comment id
+comment_content                 varchar(200)                    comment content
+comment_date                    char(20)                        comment create date
+post_id                         bigint                             post id belong to
+user_id                         bigint                             comment created user id
+
+----[
+Table: user
+[Field]                         [Type]                          [Comment]
+user_id                         bigint                             user id
+user_name                       char(20)                        user name
+user_password                   char(20)                        user password
+
+----[Over
+
