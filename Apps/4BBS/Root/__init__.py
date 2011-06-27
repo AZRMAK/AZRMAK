@@ -1,7 +1,7 @@
-from quixote import enable_ptl
+#from quixote import enable_ptl
 from quixote.publish import Publisher
 
-enable_ptl()
+#enable_ptl()
 from site import RootDirectory
 
 # For database setting

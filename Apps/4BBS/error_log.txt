@@ -104,3 +104,592 @@ Adding slash to: '/kind'
 Adding slash to: '/kind' 
 Adding slash to: '/kind' 
 Adding slash to: '/kind' 
+Adding slash to: '/kind' 
+Adding slash to: '/kind' 
+[2011-06-27 14:07:11] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 26, in _q_index
+    count,res = execute_sql_in_4bbs(sql,"SHOW")
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 19, in execute_sql_in_4bbs
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666')
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 80, in Connect
+  File "/Library/Python/2.6/site-packages/quixote/ptl/ihooks_local.py", line 410, in import_module
+    q, tail = self.find_head_package(parent, str(name))
+  File "/Library/Python/2.6/site-packages/quixote/ptl/ihooks_local.py", line 482, in find_head_package
+    raise ImportError, "No module named '%s'" % qname
+ImportError: No module named 'connections'
+
+Form:
+
+Cookies:
+QX_session      8dda8ca7cdd621c6
+
+Environment:
+CONTENT_LENGTH  0
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_COOKIE     QX_session="8dda8ca7cdd621c6"
+HTTP_HOST       127.0.0.1
+HTTP_REFERER    http://127.0.0.1/kind/login
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/
+PATH_TRANSLATED /opt/local/www/htdocs/kind/
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     50536
+REMOTE_USER     Peter
+REQUEST_METHOD  GET
+REQUEST_URI     /kind/
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+Adding slash to: '/kind' 
+[2011-06-27 14:08:48] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 26, in _q_index
+    count,res = execute_sql_in_4bbs(sql,"SHOW")
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 19, in execute_sql_in_4bbs
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666')
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 80, in Connect
+  File "/Library/Python/2.6/site-packages/quixote/ptl/ihooks_local.py", line 410, in import_module
+    q, tail = self.find_head_package(parent, str(name))
+  File "/Library/Python/2.6/site-packages/quixote/ptl/ihooks_local.py", line 482, in find_head_package
+    raise ImportError, "No module named '%s'" % qname
+ImportError: No module named 'connections'
+
+Form:
+
+Cookies:
+QX_session      60a777aa38c741c5
+
+Environment:
+CONTENT_LENGTH  0
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_COOKIE     QX_session="60a777aa38c741c5"
+HTTP_HOST       127.0.0.1
+HTTP_REFERER    http://127.0.0.1/kind/login
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/
+PATH_TRANSLATED /opt/local/www/htdocs/kind/
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     50544
+REMOTE_USER     Peter
+REQUEST_METHOD  GET
+REQUEST_URI     /kind/
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+Adding slash to: '/kind' 
+[2011-06-27 14:15:52] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 28, in _q_index
+    count,res = execute_sql_in_4bbs(sql,"SHOW")
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 19, in execute_sql_in_4bbs
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666')
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 80, in Connect
+  File "/Library/Python/2.6/site-packages/quixote/ptl/ihooks_local.py", line 410, in import_module
+    q, tail = self.find_head_package(parent, str(name))
+  File "/Library/Python/2.6/site-packages/quixote/ptl/ihooks_local.py", line 482, in find_head_package
+    raise ImportError, "No module named '%s'" % qname
+ImportError: No module named 'connections'
+
+Form:
+
+Cookies:
+QX_session      fcb097ac0f840b1f
+
+Environment:
+CONTENT_LENGTH  0
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_COOKIE     QX_session="fcb097ac0f840b1f"
+HTTP_HOST       127.0.0.1
+HTTP_REFERER    http://127.0.0.1/kind/login
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/
+PATH_TRANSLATED /opt/local/www/htdocs/kind/
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     50731
+REMOTE_USER     Peter
+REQUEST_METHOD  GET
+REQUEST_URI     /kind/
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+Adding slash to: '/kind' 
+Adding slash to: '/kind' 
+Adding slash to: '/kind' 
+Adding slash to: '/kind' 
+Adding slash to: '/kind' 
+[2011-06-27 14:55:22] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 67, in new
+    execute_sql_in_4bbs(sql,[kind_id,kind_name,kind_count,kind_shortname])
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 28, in execute_sql_in_4bbs
+    res = cursor.execute(sql,l)
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/cursors.py", line 159, in execute
+    query = query % db.literal(args)
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 264, in literal
+    return self.escape(o, self.encoders)
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 202, in unicode_literal
+    return db.literal(u.encode(unicode_literal.charset))
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+
+Form:
+action          new
+kind_name       武行
+kind_shortname  武行
+
+Cookies:
+QX_session      7656e294452bebe8
+user            Peter
+
+Environment:
+CONTENT_LENGTH  73
+CONTENT_TYPE    application/x-www-form-urlencoded
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_CONTENT_LENGTH 73
+HTTP_COOKIE     QX_session="7656e294452bebe8"; user="Peter"
+HTTP_HOST       127.0.0.1
+HTTP_ORIGIN     http://127.0.0.1
+HTTP_REFERER    http://127.0.0.1/kind/new
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/new
+PATH_TRANSLATED /opt/local/www/htdocs/kind/new
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     50941
+REMOTE_USER     Peter
+REQUEST_METHOD  POST
+REQUEST_URI     /kind/new
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+Adding slash to: '/kind' 
+[2011-06-27 15:24:54] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 28, in _q_index
+    count,res = execute_sql_in_4bbs(sql,"SHOW")
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 19, in execute_sql_in_4bbs
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666')
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 81, in Connect
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, "Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)")
+
+Form:
+
+Cookies:
+QX_session      1bf1a79745eeac01
+user            Peter
+
+Environment:
+CONTENT_LENGTH  0
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CONNECTION keep-alive
+HTTP_COOKIE     user="Peter"; QX_session="1bf1a79745eeac01"
+HTTP_HOST       127.0.0.1
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/
+PATH_TRANSLATED /opt/local/www/htdocs/kind/
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     49171
+REQUEST_METHOD  GET
+REQUEST_URI     /kind/
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+[2011-06-27 15:26:14] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 28, in _q_index
+    count,res = execute_sql_in_4bbs(sql,"SHOW")
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 19, in execute_sql_in_4bbs
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666')
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 81, in Connect
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, "Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)")
+
+Form:
+
+Cookies:
+QX_session      1bf1a79745eeac01
+user            Peter
+
+Environment:
+CONTENT_LENGTH  0
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_COOKIE     user="Peter"; QX_session="1bf1a79745eeac01"
+HTTP_HOST       127.0.0.1
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/
+PATH_TRANSLATED /opt/local/www/htdocs/kind/
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     49191
+REMOTE_USER     Peter
+REQUEST_METHOD  GET
+REQUEST_URI     /kind/
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+[2011-06-27 15:26:16] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 28, in _q_index
+    count,res = execute_sql_in_4bbs(sql,"SHOW")
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 19, in execute_sql_in_4bbs
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666')
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 81, in Connect
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, "Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)")
+
+Form:
+
+Cookies:
+QX_session      1bf1a79745eeac01
+user            Peter
+
+Environment:
+CONTENT_LENGTH  0
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_COOKIE     user="Peter"; QX_session="1bf1a79745eeac01"
+HTTP_HOST       127.0.0.1
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/
+PATH_TRANSLATED /opt/local/www/htdocs/kind/
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     49191
+REMOTE_USER     Peter
+REQUEST_METHOD  GET
+REQUEST_URI     /kind/
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+[2011-06-27 15:26:19] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 28, in _q_index
+    count,res = execute_sql_in_4bbs(sql,"SHOW")
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 19, in execute_sql_in_4bbs
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666')
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 81, in Connect
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 187, in __init__
+    super(Connection, self).__init__(*args, **kwargs2)
+OperationalError: (2002, "Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)")
+
+Form:
+
+Cookies:
+QX_session      1bf1a79745eeac01
+user            Peter
+
+Environment:
+CONTENT_LENGTH  0
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_COOKIE     user="Peter"; QX_session="1bf1a79745eeac01"
+HTTP_HOST       127.0.0.1
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/
+PATH_TRANSLATED /opt/local/www/htdocs/kind/
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     49191
+REMOTE_USER     Peter
+REQUEST_METHOD  GET
+REQUEST_URI     /kind/
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+[2011-06-27 15:34:03] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 67, in new
+    execute_sql_in_4bbs(sql,[kind_id,kind_name,kind_count,kind_shortname])
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 28, in execute_sql_in_4bbs
+    res = cursor.execute(sql,l)
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/cursors.py", line 159, in execute
+    query = query % db.literal(args)
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 264, in literal
+    return self.escape(o, self.encoders)
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 202, in unicode_literal
+    return db.literal(u.encode(unicode_literal.charset))
+UnicodeEncodeError: 'latin-1' codec can't encode characters in position 0-1: ordinal not in range(256)
+
+Form:
+action          new
+kind_name       武行
+kind_shortname  武行
+
+Cookies:
+QX_session      1bf1a79745eeac01
+user            Peter
+
+Environment:
+CONTENT_LENGTH  73
+CONTENT_TYPE    application/x-www-form-urlencoded
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_CONTENT_LENGTH 73
+HTTP_COOKIE     QX_session="1bf1a79745eeac01"; user="Peter"
+HTTP_HOST       127.0.0.1
+HTTP_ORIGIN     http://127.0.0.1
+HTTP_REFERER    http://127.0.0.1/kind/new
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/new
+PATH_TRANSLATED /opt/local/www/htdocs/kind/new
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     49268
+REMOTE_USER     Peter
+REQUEST_METHOD  POST
+REQUEST_URI     /kind/new
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+Adding slash to: '/kind' 
+[2011-06-27 16:40:45] exception caught
+Traceback (most recent call last):
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 275, in process_request
+    output = self.try_publish(request)
+  File "/Library/Python/2.6/site-packages/quixote/publish.py", line 253, in try_publish
+    output = self.root_directory._q_traverse(components)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 63, in _q_traverse
+    return obj._q_traverse(path)
+  File "/Library/Python/2.6/site-packages/quixote/directory.py", line 67, in _q_traverse
+    return obj()
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/kind.py", line 28, in _q_index
+    count,res = execute_sql_in_4bbs(sql,"SHOW")
+  File "/Users/mak/AZRMAK/Apps/4BBS/Root/tools.py", line 19, in execute_sql_in_4bbs
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666',charset='utf-8')
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/__init__.py", line 81, in Connect
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 215, in __init__
+    self.set_character_set(charset)
+  File "build/bdist.macosx-10.6-universal/egg/MySQLdb/connections.py", line 294, in set_character_set
+    super(Connection, self).set_character_set(charset)
+OperationalError: (2019, "Can't initialize character set utf-8 (path: /usr/local/mysql/share/charsets/)")
+
+Form:
+
+Cookies:
+QX_session      550665c907b40720
+user            Peter
+
+Environment:
+CONTENT_LENGTH  0
+DOCUMENT_ROOT   /opt/local/www/htdocs
+GATEWAY_INTERFACE CGI/1.1
+HTTP_ACCEPT     text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+HTTP_ACCEPT_CHARSET Big5,utf-8;q=0.7,*;q=0.3
+HTTP_ACCEPT_ENCODING gzip,deflate,sdch
+HTTP_ACCEPT_LANGUAGE zh-TW,zh;q=0.8,en-US;q=0.6,en;q=0.4
+HTTP_CACHE_CONTROL max-age=0
+HTTP_CONNECTION keep-alive
+HTTP_COOKIE     user="Peter"; QX_session="550665c907b40720"
+HTTP_HOST       127.0.0.1
+HTTP_REFERER    http://127.0.0.1/kind/login
+HTTP_USER_AGENT Mozilla/5.0 (Macintosh; Intel Mac OS X 10_6_6) AppleWebKit/534.30 (KHTML, like Gecko) Chrome/12.0.742.100 Safari/534.30
+PATH_INFO       /kind/
+PATH_TRANSLATED /opt/local/www/htdocs/kind/
+QUERY_STRING    
+REDIRECT_STATUS 200
+REMOTE_ADDR     127.0.0.1
+REMOTE_PORT     49408
+REMOTE_USER     Peter
+REQUEST_METHOD  GET
+REQUEST_URI     /kind/
+SCGI            1
+SCRIPT_FILENAME /opt/local/www/htdocs/
+SCRIPT_NAME     
+SERVER_ADDR     127.0.0.1
+SERVER_NAME     127.0.0.1
+SERVER_PORT     80
+SERVER_PROTOCOL HTTP/1.1
+SERVER_SOFTWARE lighttpd/1.4.28
+Adding slash to: '/kind' 

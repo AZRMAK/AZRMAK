@@ -16,7 +16,7 @@ def get_time_str():
 #
 
 def execute_sql_in_4bbs(sql,l):
-    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666')
+    conn = MySQLdb.connect(host='localhost',user='root',passwd='666666',charset='utf8')
     cursor = conn.cursor()
     conn.select_db('4bbs')
     if l == 'SHOW':

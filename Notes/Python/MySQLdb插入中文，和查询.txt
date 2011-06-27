@@ -5,4 +5,13 @@ UTF-8，在文件的开始处加入：#-*- coding: utf-8 -*-,并且加入：
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
+
+*對於MySQL,還有一點要注意:
+1. 連接的時候要： 
+   conn = MySQLdb.connect(host='localhost',user='root',passwd='666666',charset='utf8')
+   指定utf8編碼
+
+2. my.cnf 配置成
+   [client]
+   default-character-set = utf8
 ＝Over ＝

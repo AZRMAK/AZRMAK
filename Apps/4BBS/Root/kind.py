@@ -7,7 +7,9 @@ from quixote import get_field,redirect
 from Template import Template
 from tools import *
 from quixote import get_user, get_session, get_session_manager,get_response,get_cookie
+import MySQLdb
 
+reload(MySQLdb)
 
 class KindDirectory(Directory):
     _q_exports = ["","new","edit","delete","login","logout"]
