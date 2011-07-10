@@ -1,0 +1,30 @@
+{\rtf1\ansi\ansicpg950\cocoartf1038\cocoasubrtf350
+{\fonttbl\f0\fnil\fcharset136 STHeitiTC-Light;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10500\viewh9600\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs28 \cf0 Mac OS X(Linux) - \'b3\'a1\'b8\'70lighttpd - scgi - django\
+\
+1. \'a6\'77\uc0\u35013 \'a6\'7d\'a5\'42\'b0\'74\'b8\'6dlighttpd\
+	\'ac\'d9\'b2\'a4\'a1\'41\'a5\'69\'a5\'48\uc0\u21442 \'a6\'d2\'a5\'48\'ab\'65\'aa\'ba\'a4\'e5\'b3\'b9\
+	scgi\'aa\'ba\'b0\'74\'b8\'6d\'a5\'69\'a5\'48\'a4\'a3\'ad\'d7\'a7\'ef\'a1\'41\'aa\'bd\'b1\'b5\uc0\u21457 \'b0\'65\'a8\'eclocalhost\'aa\'ba3000\'ba\'dd\'a4\'66\
+2. \'a6\'77\uc0\u35013 flup\
+    	\uc0\u35828 \'a4\'40\'a4\'55flup\'a7\'61\'a1\'41\'a8\'e4\u23454 \'b3\'cc\'a6\'ad\u35748 \u35782 flup\'a1\'41\u36824 \'ac\'4f\'a6\'62windows\'a5\'ad\'a5\'78\'a1\'41\u20026 \'a4\'46\u35753 python\u23454 \u29616 scgi\'aa\'41\u21153 \'be\'b9\'a1\'41\'bb\'dd\'ad\'6e\'a6\'77\u35013 flup\'a1\'41\u29616 \'a6\'62\'a1\'41Mac OS X\'a4\'5d\'bb\'dd\'ad\'6eflup\'a1\'43\
+    	@\'a6\'5d\uc0\u20026 django\'a8\'e4\u23454 \'a4\'a3\'ac\'4f\'a5\'cepython\'aa\'bascgi\'bc\'d2\u22359 \'aa\'ba\'a1\'41\'a5\'a6\'ac\'4f\'ad\'c9\'a7\'55flup\u26469 \u23454 \u29616 scgi\u21327 \u35758 \
+ 	\
+	\'a4\'55\uc0\u36733 \'a6\'7d\'a5\'42\'b8\'d1\u21387 flup\'a1\'41\'b5\'4d\'a6\'5a\'a1\'47python setup.py install\
+\
+3. \uc0\u21551 \u21160 django\'aa\'bascgi\'aa\'41\u21153 \
+     \
+	python manage.py runfcgi protocol=scgi host=127.0.0.1 port=3000 method=threaded\
+\
+	protocol\'ab\'fc\'a9\'77\'aa\'41\uc0\u21153 \'be\'b9\'aa\'ba\'b3\'71\u35759 \u21327 \u35758 \'a1\'41\u36816 \'a6\'e6 python manage.py runfcgi help\
+\'a5\'69\'a5\'48\'ac\'dd\'a8\'ec\'a4\'e4\'ab\'f9\'aa\'ba\uc0\u21327 \u35758 \'a1\'43\
+	\'a1\'a7  protocol=PROTOCOL    fcgi, scgi, ajp, ... (default fcgi)\'a1\'a8\
+	\'c0\'71\uc0\u35748 \'ac\'4ffcgi\'a1\'41\'ac\'4afastcgi\u21327 \u35758 \'a1\'43\
+\
+4. \uc0\u21551 \u21160 lighttpd\'a6\'5a\'a1\'41\'aa\'bd\'b1\'b5\'a5\'b4\u24320 http://localhost\'b4\'4e\'af\'e0\'ac\'dd\'a8\'ec\'ae\'c4\'aa\'47\'a1\'43\
+   	It worked!\
+\
+--[ Over ]--}
