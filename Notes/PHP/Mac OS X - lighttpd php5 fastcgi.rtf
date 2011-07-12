@@ -1,0 +1,54 @@
+{\rtf1\ansi\ansicpg950\cocoartf1038\cocoasubrtf350
+{\fonttbl\f0\fnil\fcharset0 GillSans;\f1\fnil\fcharset136 STHeitiTC-Light;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10500\viewh9600\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\ql\qnatural\pardirnatural
+
+\f0\fs28 \cf0 Mac OS X
+\f1  - lighttpd php5 fastcgi\
+\
+1. \'a6\'77\uc0\u35013 lighttpd\
+	\'ac\'d9\'b2\'a4\
+2. \'b0\'74\'b8\'6dlighttpd\
+	\uc0\u33050 \'a5\'bb\'a5\'d8\u24405 \'a1\'47[lighttpd.conf]\
+	server.document-root = "/opt/local/www"\
+	\
+	\uc0\u21551 \u21160 fastcgi\'a1\'47[modules.conf]\
+	##\
+	## FastCGI (mod_fastcgi)\
+	##\
+	include "conf.d/fastcgi.conf"\
+\
+	\'b0\'74\'b8\'6dfastcgi \'ab\'c8\uc0\u25143 \'ba\'dd\'a1\'47[fastcgi.conf]\
+	server.modules += ( "mod_fastcgi" )\
+\
+	fastcgi.server = ( ".php" =>\
+        		( "localhost" =>\
+            		(\
+                		"host" => "127.0.0.1",\
+                		"port" => 9000\
+                		#"bin-path" => "/opt/local/bin/php-cgi"\
+            		)\
+        		)\
+        		)\
+\
+3. \'a6\'77\uc0\u35013 php5 \'a9\'4dfastcgi\
+    	\'b4\'c0\uc0\u25442 /opt/local/var/macports/sources/rsync.macports.org/release/ports/lang/php5/Portfile\
+    	\'b4\'c0\uc0\u25442 \'aa\'a9\'a5\'bb\'a5\'69\'a5\'48\'a6\'62\u36825 \'a8\'bd\'a4\'55\u36733 \'a8\'ec\'a1\'47{\field{\*\fldinst{HYPERLINK "https://github.com/AZRMAK/AZRMAK/tree/master/Packages"}}{\fldrslt https://github.com/AZRMAK/AZRMAK/tree/master/Packages}}\
+	\'b1\'b5\uc0\u30528 \'a1\'47\
+ 	sudo port install php5 +fastcgi\
+	sudo cp /opt/local/etc/php-fpm.conf.default /opt/local/etc/php-fpm.conf\
+	\'ae\'da\'d5\'75\uc0\u38169 \u35823 \u32534 \u36753 php-fpm.conf\
+	\uc0\u21551 \u21160 php-fpm:\
+	php-fpm\
+\
+4. \'a6\'62\uc0\u33050 \'a5\'bb\'a5\'d8\u24405 \'ab\'d8\'a5\'df\'a4\'40\u20010 \u27979 \u35797 \'a4\'e5\'a5\'f3\'a1\'47test.php\
+	\uc0\u20869 \'ae\'65\u20026 \'a1\'47\
+ 	<?php\
+	phpinfo();\
+	?>\
+	\
+	\'a5\'b4\uc0\u24320 http://localhost/test.php\
+\
+--[Over]--\
+}
